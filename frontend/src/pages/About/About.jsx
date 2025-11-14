@@ -1,6 +1,6 @@
 import InstructorCard from "../../components/InstructorCard/InstructorCard";
 import styles from "./About.module.css";
-import Namahshri from "../../assets/images/Namahshri_Intructor.jpg"
+import Namahshri from "../../assets/images/Namahshri_Intructor.jpeg"
 import Dakshaj from "../../assets/images/Dakshaj_Intructor.jpg"
 
 export default function About() {
