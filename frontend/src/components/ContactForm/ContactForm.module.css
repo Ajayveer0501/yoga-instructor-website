@@ -1,0 +1,7 @@
+.form{ max-width:640px; margin:0 auto; display:flex; flex-direction:column; gap:12px; padding:8px; }
+.input, .textarea{ border:1px solid #e5e7eb; padding:10px; border-radius:8px; }
+.textarea{ min-height:120px; }
+.btn{ background:var(--brand); color:white; padding:10px 14px; border-radius:8px; }
+.success{ color:green; font-weight:600; }
+.error{ color:#b91c1c; }
+.row{ display:flex; justify-content:flex-end; }

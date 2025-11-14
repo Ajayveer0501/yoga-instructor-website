@@ -1,0 +1,247 @@
+/* ----------- Motion Wrapper ----------- */
+.motionWrap {
+  perspective: 1000px;
+  position: relative;
+}
+
+/* ----------- Card Wrapper ----------- */
+.cardWrapper {
+  position: relative;
+  border-radius: 22px;
+  transition: 0.35s;
+  transform-style: preserve-3d;
+}
+
+.cardWrapper:hover {
+  transform: translateY(-8px) rotateX(5deg) rotateY(-5deg);
+}
+
+/* ----------- Gradient Border ----------- */
+.gradientBorder {
+  position: absolute;
+  inset: 0;
+  padding: 2px;
+  border-radius: 22px;
+  background: linear-gradient(135deg, #10b981, #5eead4, #16a34a);
+  background-size: 400% 400%;
+  animation: borderAnimate 6s ease infinite;
+  z-index: 0;
+}
+
+@keyframes borderAnimate {
+  0%, 100% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+}
+
+/* ----------- Card ----------- */
+.card {
+  position: relative;
+  border-radius: 20px;
+  background: linear-gradient(140deg, #4ade80, #16a34a, #059669);
+  background-size: 200% 200%;
+  animation: cardGradient 8s ease infinite;
+
+  padding: 28px;
+  text-align: center;
+  overflow: hidden;
+  box-shadow: 0 12px 26px rgba(0,0,0,0.14);
+  z-index: 2;
+}
+
+@keyframes cardGradient {
+  0%, 100% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+}
+
+/* ----------- Shine Effect ----------- */
+.shine {
+  position: absolute;
+  top: -60%;
+  left: -60%;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(120deg,
+    rgba(255,255,255,0.05),
+    rgba(255,255,255,0.22),
+    rgba(255,255,255,0.05)
+  );
+  transform: rotate(45deg);
+  opacity: 0;
+}
+
+.cardWrapper:hover .shine {
+  opacity: 1;
+  animation: shineMove 1.2s ease forwards;
+}
+
+@keyframes shineMove {
+  from { transform: translateX(-100%) rotate(45deg); }
+  to { transform: translateX(100%) rotate(45deg); }
+}
+
+/* ----------- Image ----------- */
+.imageWrap {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 18px;
+}
+
+.photo {
+  width: 230px;
+  height: 230px;
+  border-radius: 18px;
+  object-fit: cover;
+  transition: 0.35s ease;
+}
+
+.cardWrapper:hover .photo {
+  transform: scale(1.05);
+}
+
+/* ----------- Text ----------- */
+.name {
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: #064e3b;
+}
+
+.title {
+  color: #064e3b;
+  opacity: 0.9;
+  font-weight: 600;
+  margin-bottom: 6px;
+}
+
+.bio {
+  color: #064e3b;
+  opacity: 0.85;
+  line-height: 1.55;
+  font-size: 0.95rem;
+  margin: 10px 0 18px 0;
+}
+
+/* ----------- Buttons Row ----------- */
+.buttonRow {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 18px;
+  margin-bottom: 16px;
+}
+
+/* ----------- Book Button ----------- */
+.bookBtn {
+  background: linear-gradient(135deg, #4ade80, #16a34a);
+  color: white;
+  padding: 10px 22px;
+  border-radius: 12px;
+  font-weight: 600;
+  border: none;
+  cursor: pointer;
+  transition: 0.25s;
+  min-width: 130px;
+}
+
+.bookBtn:hover {
+  transform: translateY(-3px) scale(1.03);
+  box-shadow: 0 6px 18px rgba(5,150,105,0.28);
+}
+
+/* ----------- CALL BUTTON (FINAL PERFECT VERSION) ----------- */
+.callBtn {
+  background: #047857;
+  color: white;
+  padding: 10px 22px;
+  border-radius: 12px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.28s ease;
+  min-width: 150px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+
+  position: relative;
+  overflow: hidden;
+}
+
+.callBtn:hover {
+  background: #065f46;
+  transform: translateY(-2px) scale(1.03);
+}
+
+/* Icon */
+.callBtn i {
+  font-size: 16px;
+  transition: opacity 0.2s ease;
+}
+
+/* icon hides on hover */
+.callBtn:hover i {
+  opacity: 0;
+}
+
+/* "Call" text (visible normally) */
+.callText {
+  opacity: 1;
+  transition: opacity 0.2s ease;
+}
+
+/* phone number (slides in) */
+.phoneSlide {
+  position: absolute;
+  right: -100%;
+  opacity: 0;
+  transition: 0.3s ease;
+}
+
+/* Hover → hide Call text */
+.callBtn:hover .callText {
+  opacity: 0;
+}
+
+/* Hover → slide number in */
+.callBtn:hover .phoneSlide {
+  right: 12px;
+  opacity: 1;
+}
+
+/* ----------- Social Icons ----------- */
+.socials {
+  display: flex;
+  justify-content: center;
+  gap: 18px;
+}
+
+.icon {
+  font-size: 26px;
+  transition: 0.25s ease;
+}
+
+.instagram:hover {
+  color: #e1306c;
+  transform: scale(1.2);
+}
+
+.whatsapp:hover {
+  color: #25D366;
+  transform: scale(1.2);
+}
+
+/* ----------- Responsive ----------- */
+@media (max-width: 640px) {
+  .buttonRow {
+    flex-direction: column;
+  }
+
+  .callBtn, .bookBtn {
+    width: 100%;
+  }
+
+  .photo {
+    width: 190px;
+    height: 190px;
+  }
+}

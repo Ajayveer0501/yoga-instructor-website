@@ -1,0 +1,194 @@
+/* ===========================
+   Wrapper / Navbar Container
+   =========================== */
+.wrap {
+  background: rgba(255, 255, 255, 0.9);
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  backdrop-filter: blur(12px);
+  transition: padding 0.25s ease, box-shadow 0.25s ease;
+  padding: 14px 0;
+  box-shadow: 0 0 0 rgba(0, 0, 0, 0);
+}
+
+.shrink {
+  padding: 8px 0;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+/* ===========================
+   Inner Container
+   =========================== */
+.container {
+  max-width: 1150px;
+  margin: 0 auto;
+  padding: 0 18px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* ===========================
+   Brand (Logo + Text)
+   =========================== */
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.logoImg {
+  width: 42px;
+  height: 42px;
+  object-fit: contain;
+}
+
+.logoText {
+  font-weight: 700;
+  font-size: 1.3rem;
+  color: #064e3b;
+  text-decoration: none;
+}
+
+/* ===========================
+   Desktop Navigation
+   =========================== */
+.navDesktop {
+  display: none;
+  gap: 26px;
+  align-items: center;
+}
+
+.link {
+  text-decoration: none;
+  color: #111;
+  font-size: 1.05rem;
+  position: relative;
+  padding-bottom: 4px;
+  transition: color 0.3s ease;
+}
+
+/* Hover underline animation */
+.link::after {
+  content: "";
+  height: 3px;
+  width: 0%;
+  background: var(--brand);
+  position: absolute;
+  left: 0;
+  bottom: -3px;
+  border-radius: 5px;
+  transition: width 0.3s ease;
+}
+
+.link:hover::after {
+  width: 100%;
+}
+
+/* Active state */
+.active {
+  color: var(--brand);
+}
+
+.active::after {
+  width: 100%;
+}
+
+/* CONTACT BUTTON */
+.cta {
+  background: var(--brand);
+  color: white !important;
+  padding: 10px 18px;
+  border-radius: 10px;
+  text-decoration: none;
+  transition: 0.25s ease;
+  font-weight: 600;
+}
+
+.cta:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 14px rgba(0, 128, 90, 0.25);
+}
+
+.activeCta {
+  background: #059669;
+}
+
+/* ===========================
+   Burger Icon (Mobile)
+   =========================== */
+.burger {
+  background: none;
+  border: 0;
+  display: block;
+}
+
+.line {
+  width: 24px;
+  height: 2.5px;
+  background: #111;
+  margin: 5px 0;
+  transition: 0.25s ease;
+}
+
+/* ===========================
+   Mobile Menu
+   =========================== */
+.mobileMenu {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding: 0;
+  height: 0;
+  overflow: hidden;
+  background: white;
+  transition: height 0.35s ease, padding 0.35s ease;
+}
+
+.mobileOpen {
+  height: 230px;
+  padding: 16px 20px;
+}
+
+/* Mobile links */
+.mobileLink {
+  text-decoration: none;
+  font-size: 1.15rem;
+  color: #222;
+}
+
+/* Active mobile link */
+.activeMobile {
+  color: var(--brand);
+  font-weight: 600;
+}
+
+/* Contact mobile button */
+.mobileCta {
+  background: var(--brand);
+  color: white !important;
+  padding: 12px 18px;
+  border-radius: 10px;
+  text-decoration: none;
+  margin-top: 2px;
+}
+
+.activeMobileCta {
+  background: #059669;
+}
+
+/* ===========================
+   Responsive
+   =========================== */
+@media (min-width: 768px) {
+  .navDesktop {
+    display: flex;
+  }
+  .burger {
+    display: none;
+  }
+  .mobileMenu {
+    display: none;
+  }
+}
