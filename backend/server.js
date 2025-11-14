@@ -1,30 +1,32 @@
-require('dotenv').config();
-const express = require('express');
-const cors = require('cors');
-const path = require('path');
-require('./db/init'); // initialize DB if not exists
+import express from "express";
+import cors from "cors";
+import dotenv from "dotenv";
 
-const contactRoutes = require('./routes/contactRoutes');
-const bookingRoutes = require('./routes/bookingRoutes');
-const paymentRoutes = require('./routes/paymentRoutes');
-const adminRoutes = require('./routes/adminRoutes');
-const errorHandler = require('./middleware/errorHandler');
+dotenv.config();
 
 const app = express();
+
+// Middleware
 app.use(cors());
 app.use(express.json());
 
-app.use('/api/contact', contactRoutes);
-app.use('/api/booking', bookingRoutes);
-app.use('/api/payment', paymentRoutes);
-app.use('/api/admin', adminRoutes);
+// Basic route to test if backend is running
+app.get("/", (req, res) => {
+  res.json({ message: "Yoga Instructor Backend is Running Successfully" });
+});
 
-// Serve frontend in production (optional)
-if (process.env.NODE_ENV === 'production') {
-  app.use(express.static(path.join(__dirname, '..', 'frontend', 'build')));
-  app.get('*', (req, res) => res.sendFile(path.join(__dirname, '..', 'frontend', 'build', 'index.html')));
-}
+// Example contact endpoint (optional)
+app.post("/contact", (req, res) => {
+  const { name, email, message } = req.body;
 
-app.use(errorHandler);
+  console.log("New contact form submission:", { name, email, message });
+
+  res.json({ success: true, message: "Form submitted successfully" });
+});
+
+// Render or local port handling
 const PORT = process.env.PORT || 5000;
-app.listen(PORT, () => console.log(`Backend listening on ${PORT}`));
+
+app.listen(PORT, () => {
+  console.log(`Server running on port ${PORT}`);
+});
