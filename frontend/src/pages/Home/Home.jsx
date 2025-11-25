@@ -96,7 +96,7 @@ export default function Home() {
             <Link to="/contact" className={styles.primaryBtn}>
               Book a Corporate Session
             </Link>
-            <a href="mailto:flowsisters@yoga.com" className={styles.secondaryBtn}>
+            <a href="mailto:flowwithyogasisters@gmail.com" className={styles.secondaryBtn}>
               Email Us for a Custom Plan
             </a>
           </div>
