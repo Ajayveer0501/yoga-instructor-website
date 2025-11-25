@@ -1,4 +1,3 @@
-/* ----------- Motion Wrapper ----------- */
 .motionWrap {
   perspective: 1000px;
   position: relative;
@@ -44,7 +43,7 @@
   padding: 28px;
   text-align: center;
   overflow: hidden;
-  box-shadow: 0 12px 26px rgba(15, 23, 42, 0.14);
+  box-shadow: 0 12px 26px rgba(15,23,42,0.14);
   z-index: 2;
 }
 
@@ -147,7 +146,7 @@
   box-shadow: 0 6px 18px rgba(37, 99, 235, 0.28);
 }
 
-/* ----------- CALL BUTTON (FINAL PERFECT VERSION) ----------- */
+/* ----------- CALL BUTTON ----------- */
 .callBtn {
   background: #2563eb;
   color: #ffffff;
@@ -172,24 +171,20 @@
   transform: translateY(-2px) scale(1.03);
 }
 
-/* Icon */
 .callBtn i {
   font-size: 16px;
   transition: opacity 0.2s ease;
 }
 
-/* icon hides on hover */
 .callBtn:hover i {
   opacity: 0;
 }
 
-/* "Call" text (visible normally) */
 .callText {
   opacity: 1;
   transition: opacity 0.2s ease;
 }
 
-/* phone number (slides in) */
 .phoneSlide {
   position: absolute;
   right: -100%;
@@ -197,12 +192,10 @@
   transition: 0.3s ease;
 }
 
-/* Hover → hide Call text */
 .callBtn:hover .callText {
   opacity: 0;
 }
 
-/* Hover → slide number in */
 .callBtn:hover .phoneSlide {
   right: 12px;
   opacity: 1;
@@ -220,7 +213,6 @@
   transition: 0.25s ease;
 }
 
-/* both socials use brand hover color */
 .instagram:hover,
 .whatsapp:hover {
   color: #2563eb;
