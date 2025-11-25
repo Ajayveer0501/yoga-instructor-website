@@ -1,9 +1,48 @@
 import styles from './Classes.module.css';
 
 const CLASSES = [
-  { id:1, title:'Hatha Yoga', desc:'Gentle alignment-based classes', price:'₹500' },
-  { id:2, title:'Vinyasa Flow', desc:'Dynamic movement & breath', price:'₹600' },
-  { id:3, title:'Meditation', desc:'Guided mindfulness sessions', price:'₹400' }
+  { id:1,
+    title:'Personal Yoga Session',
+    desc:'One-on-one customized classes designed for your specific goals.',
+    price:'Call us' },
+    { id:2,
+    title:'Group Yoga Classes',
+    desc:'Practice in small groups with friends, family, or community batches.',
+    price:'Call us' },
+    { id:3,
+    title:'Corporate Wellness Sessions-Within City',
+    desc:'Yoga, stretching & mindfulness sessions for offices and teams.',
+    price:'₹25000' },
+    { id:4,
+    title:'Corporate Wellness Sessions-Outside City',
+    desc:'Yoga, stretching & mindfulness sessions for offices and teams.',
+    price:'₹50,000' },
+    { id:5,
+    title:'Online Regular Yoga Classes',
+    desc:'Join live virtual sessions from anywhere.',
+    price:'Call us' },
+    { id:6,
+    title:'Prenatal & Postnatal Yoga',
+    desc:'Safe, gentle yoga for pregnant women and recovery sessions for new mothers.',
+    price:'Call us' },
+    { id:7,
+    title:'Kids & Teens Yoga',
+    desc:'Fun, engaging sessions to build strength, focus, and flexibility.',
+    price:'Call us' },
+    { id:8,
+    title:'Fat Loss Yoga Program',
+    desc:'Structured yoga sessions focused on metabolism, mobility, and core strength.',
+    price:'Call us' },    
+    { id:9,
+    title:'Nutrition Plan for Fitness Goals',
+    desc:'Personalized diet plans for fat loss, energy, and overall wellness.',
+    price:'Call us' },  
+    { id:10,
+    title:'Therapeutic & Recovery Yoga',
+    desc:'Gentle yoga for pain relief, posture correction, stress management, and healing.',
+    price:'Call us' }, 
+       
+  
 ];
 
 export default function Classes(){

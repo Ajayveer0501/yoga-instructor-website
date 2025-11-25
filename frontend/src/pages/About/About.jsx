@@ -3,9 +3,6 @@ import styles from './About.module.css';
 import InstructorCard from '../../components/Instructors/InstructorCard';
 
 // 🔁 Data-driven instructors – professional pattern
-//import instructor1Img from '../../assets/images/Dakshaj_Instructor.jpg';
-//import instructor2Img from '../../assets/images/Namahshri_Instructor.jpg';
-// import instructor3Img from '../../assets/images/instructor3.jpg';
 import instructor1Img from "../../assets/images/Dakshaj_Intructor.jpg"
 import instructor2Img from "../../assets/images/Namahshri_Intructor.jpeg"
 
