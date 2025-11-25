@@ -9,7 +9,7 @@ const INSTRUCTORS = [
   {
     name: "Dakshaj",
     role: "Certified Power Yoga & Meditation Trainer",
-    bio: "With 12+ years of teaching experience, Aaradhya blends modern wellness with traditional",
+    bio: "With 12+ years of teaching experience, Aaradhya blends modern wellness with traditional yogic science.",
     imageSrc: instructor1Img,
     phone: "+91 9516064637",
     instagramUrl:
@@ -19,7 +19,7 @@ const INSTRUCTORS = [
   {
     name: "NamahShri",
     role: "Certified Yoga & Meditation Trainer",
-    bio: "With 12+ years of teaching experience, Aaradhya blends modern wellness with traditional",
+    bio: "With 12+ years of teaching experience, Aaradhya blends modern wellness with traditional yogic science.",
     imageSrc: instructor2Img,
     phone: "+91 7746800930",
     instagramUrl:
