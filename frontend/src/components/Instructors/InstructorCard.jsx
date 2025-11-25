@@ -11,6 +11,7 @@ const InstructorCard = ({
   instagramUrl,
   whatsappUrl,
 }) => {
+  // remove spaces so tel: link works
   const normalizedPhone = phone ? phone.replace(/\s+/g, "") : "";
 
   return (
@@ -21,50 +22,48 @@ const InstructorCard = ({
       transition={{ duration: 0.6 }}
       viewport={{ once: true }}
     >
-      <div className={styles.cardWrapper}>
-        <div className={styles.gradientBorder}></div>
-
-        <div className={styles.card}>
-          <div className={styles.shine}></div>
-
-          {/* Image */}
-          <div className={styles.imageWrap}>
+      <article className={styles.card}>
+        {/* Top row: avatar + text */}
+        <div className={styles.header}>
+          <div className={styles.avatarRing}>
             <img src={imageSrc} alt={name} className={styles.photo} />
           </div>
 
-          {/* Text */}
-          <h2 className={styles.name}>{name}</h2>
-          <p className={styles.title}>{role}</p>
-          <p className={styles.bio}>{bio}</p>
-
-          {/* Buttons */}
-          <div className={styles.buttonRow}>
-            <button className={styles.bookBtn}>Book Session</button>
-
-            {/* Call button */}
-            <a href={`tel:${normalizedPhone}`} className={styles.callBtn}>
-              <i className="fa-solid fa-phone" />
-              <span className={styles.callText}>Call</span>
-              <span className={styles.phoneSlide}>{phone}</span>
-            </a>
-          </div>
-
-          {/* Social Icons */}
-          <div className={styles.socials}>
-            <a href={instagramUrl} target="_blank" rel="noreferrer">
-              <i
-                className={`fa-brands fa-instagram ${styles.icon} ${styles.instagram}`}
-              />
-            </a>
-
-            <a href={whatsappUrl} target="_blank" rel="noreferrer">
-              <i
-                className={`fa-brands fa-whatsapp ${styles.icon} ${styles.whatsapp}`}
-              />
-            </a>
+          <div className={styles.textBlock}>
+            <h2 className={styles.name}>{name}</h2>
+            <p className={styles.role}>{role}</p>
           </div>
         </div>
-      </div>
+
+        {/* Bio */}
+        <p className={styles.bio}>{bio}</p>
+
+        {/* Buttons row */}
+        <div className={styles.buttonRow}>
+          <button type="button" className={styles.bookBtn}>
+            Book a Session
+          </button>
+
+          <a href={`tel:${normalizedPhone}`} className={styles.callBtn}>
+            <i className="fa-solid fa-phone" />
+            <span className={styles.callText}>Call</span>
+          </a>
+        </div>
+
+        {/* Social icons */}
+        <div className={styles.socials}>
+          <a href={instagramUrl} target="_blank" rel="noreferrer">
+            <i
+              className={`fa-brands fa-instagram ${styles.icon} ${styles.instagram}`}
+            />
+          </a>
+          <a href={whatsappUrl} target="_blank" rel="noreferrer">
+            <i
+              className={`fa-brands fa-whatsapp ${styles.icon} ${styles.whatsapp}`}
+            />
+          </a>
+        </div>
+      </article>
     </motion.div>
   );
 };

@@ -1,249 +1,192 @@
+/* Outer motion wrapper (for framer-motion) */
 .motionWrap {
-  perspective: 1000px;
   position: relative;
 }
 
-/* ----------- Card Wrapper ----------- */
-.cardWrapper {
-  position: relative;
-  border-radius: 22px;
-  transition: 0.35s;
-  transform-style: preserve-3d;
-}
-
-.cardWrapper:hover {
-  transform: translateY(-8px) rotateX(5deg) rotateY(-5deg);
-}
-
-/* ----------- Gradient Border ----------- */
-.gradientBorder {
-  position: absolute;
-  inset: 0;
-  padding: 2px;
-  border-radius: 22px;
-  background: linear-gradient(135deg, #2563eb, #bfdbfe, #1d4ed8);
-  background-size: 400% 400%;
-  animation: borderAnimate 6s ease infinite;
-  z-index: 0;
-}
-
-@keyframes borderAnimate {
-  0%,
-  100% {
-    background-position: 0% 50%;
-  }
-  50% {
-    background-position: 100% 50%;
-  }
-}
-
-/* ----------- Card ----------- */
+/* Main card – flat, soft, like your screenshot */
 .card {
   position: relative;
-  border-radius: 20px;
-  background: linear-gradient(140deg, #bfdbfe, #60a5fa, #2563eb);
-  background-size: 200% 200%;
-  animation: cardGradient 8s ease infinite;
-  padding: 28px;
-  text-align: center;
-  overflow: hidden;
-  box-shadow: 0 12px 26px rgba(15, 23, 42, 0.14);
-  z-index: 2;
-}
-
-@keyframes cardGradient {
-  0%,
-  100% {
-    background-position: 0% 50%;
-  }
-  50% {
-    background-position: 100% 50%;
-  }
-}
-
-/* ----------- Shine Effect ----------- */
-.shine {
-  position: absolute;
-  top: -60%;
-  left: -60%;
-  width: 200%;
-  height: 200%;
-  background: linear-gradient(
-    120deg,
-    rgba(255, 255, 255, 0.05),
-    rgba(255, 255, 255, 0.22),
-    rgba(255, 255, 255, 0.05)
-  );
-  transform: rotate(45deg);
-  opacity: 0;
-}
-
-.cardWrapper:hover .shine {
-  opacity: 1;
-  animation: shineMove 1.2s ease forwards;
-}
-
-@keyframes shineMove {
-  from {
-    transform: translateX(-100%) rotate(45deg);
-  }
-  to {
-    transform: translateX(100%) rotate(45deg);
-  }
-}
-
-/* ----------- Image ----------- */
-.imageWrap {
+  background: radial-gradient(circle at top left, #e0f2fe 0, #ffffff 55%, #f9f9ff 100%);
+  border-radius: 22px;
+  padding: 22px 22px 20px;
+  box-shadow: 0 16px 34px rgba(15, 23, 42, 0.06);
+  border: 1px solid rgba(148, 163, 184, 0.22);
   display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+/* Top row: avatar + text */
+.header {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+}
+
+/* Circular image with blue ring */
+.avatarRing {
+  width: 70px;
+  height: 70px;
+  border-radius: 999px;
+  padding: 3px;
+  background: linear-gradient(135deg, #bfdbfe, #60a5fa, #2563eb);
+  display: flex;
+  align-items: center;
   justify-content: center;
-  margin-bottom: 18px;
 }
 
 .photo {
-  width: 230px;
-  height: 230px;
-  border-radius: 18px;
+  width: 100%;
+  height: 100%;
+  border-radius: 999px;
   object-fit: cover;
-  transition: 0.35s ease;
 }
 
-.cardWrapper:hover .photo {
-  transform: scale(1.05);
+/* Name + role */
+.textBlock {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
 }
 
-/* ----------- Text ----------- */
 .name {
-  font-size: 1.6rem;
+  margin: 0;
+  font-size: 1.15rem;
   font-weight: 700;
   color: #0f172a;
 }
 
-.title {
-  color: #0f172a;
-  opacity: 0.9;
+.role {
+  margin: 0;
+  font-size: 0.9rem;
   font-weight: 600;
-  margin-bottom: 6px;
+  color: #2563eb;
 }
 
+/* Bio text under header */
 .bio {
-  color: #0f172a;
-  opacity: 0.85;
-  line-height: 1.55;
+  margin: 8px 0 0 0;
   font-size: 0.95rem;
-  margin: 10px 0 18px 0;
+  line-height: 1.6;
+  color: #475569;
 }
 
-/* ----------- Buttons Row ----------- */
+/* Buttons row */
 .buttonRow {
+  margin-top: 18px;
   display: flex;
-  justify-content: center;
+  flex-wrap: wrap;
+  gap: 12px;
   align-items: center;
-  gap: 18px;
-  margin-bottom: 16px;
 }
 
-/* ----------- Book Button ----------- */
+/* Book button – strong blue gradient */
 .bookBtn {
   background: linear-gradient(135deg, #2563eb, #1d4ed8);
   color: #ffffff;
   padding: 10px 22px;
-  border-radius: 12px;
-  font-weight: 600;
+  border-radius: 999px;
   border: none;
+  font-weight: 600;
+  font-size: 0.95rem;
   cursor: pointer;
-  transition: 0.25s;
-  min-width: 130px;
+  min-width: 150px;
+  box-shadow: 0 12px 26px rgba(37, 99, 235, 0.25);
+  transition: transform 0.18s ease, box-shadow 0.18s ease;
 }
 
 .bookBtn:hover {
-  transform: translateY(-3px) scale(1.03);
-  box-shadow: 0 6px 18px rgba(37, 99, 235, 0.28);
+  transform: translateY(-2px);
+  box-shadow: 0 16px 32px rgba(37, 99, 235, 0.3);
 }
 
-/* ----------- CALL BUTTON ----------- */
+/* Call button – pale blue pill, like screenshot’s yellow pill */
 .callBtn {
-  background: #2563eb;
-  color: #ffffff;
+  background: linear-gradient(135deg, #eff6ff, #e0f2fe);
+  color: #0f172a;
   padding: 10px 22px;
-  border-radius: 12px;
+  border-radius: 999px;
   font-weight: 600;
-  cursor: pointer;
-  transition: 0.28s ease;
-  min-width: 150px;
+  font-size: 0.95rem;
+  min-width: 130px;
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 10px;
-  position: relative;
-  overflow: hidden;
+  gap: 8px;
+  text-decoration: none;
+  box-shadow: 0 10px 22px rgba(15, 23, 42, 0.08);
+  transition: transform 0.18s ease, box-shadow 0.18s ease, background 0.18s ease;
 }
 
 .callBtn:hover {
-  background: #1d4ed8;
-  transform: translateY(-2px) scale(1.03);
+  transform: translateY(-2px);
+  box-shadow: 0 14px 30px rgba(15, 23, 42, 0.12);
+  background: linear-gradient(135deg, #dbeafe, #bfdbfe);
 }
 
 .callBtn i {
-  font-size: 16px;
-  transition: opacity 0.2s ease;
-}
-
-.callBtn:hover i {
-  opacity: 0;
+  font-size: 0.95rem;
+  color: #2563eb;
 }
 
 .callText {
-  opacity: 1;
-  transition: opacity 0.2s ease;
+  display: inline-block;
 }
 
-.phoneSlide {
-  position: absolute;
-  right: -100%;
-  opacity: 0;
-  transition: 0.3s ease;
-}
-
-.callBtn:hover .callText {
-  opacity: 0;
-}
-
-.callBtn:hover .phoneSlide {
-  right: 12px;
-  opacity: 1;
-}
-
-/* ----------- Social Icons ----------- */
+/* Social icons bottom-right, floating like in screenshot */
 .socials {
+  position: absolute;
+  right: 18px;
+  bottom: 16px;
   display: flex;
-  justify-content: center;
-  gap: 18px;
+  gap: 10px;
 }
 
+/* Round icon buttons */
 .icon {
-  font-size: 26px;
-  transition: 0.25s ease;
+  width: 34px;
+  height: 34px;
+  border-radius: 999px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: #ffffff;
+  box-shadow: 0 8px 20px rgba(15, 23, 42, 0.18);
+  font-size: 18px;
+  color: #64748b;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, color 0.2s ease;
 }
 
 .instagram:hover,
 .whatsapp:hover {
+  transform: translateY(-1px) scale(1.05);
+  box-shadow: 0 10px 26px rgba(37, 99, 235, 0.35);
   color: #2563eb;
-  transform: scale(1.2);
 }
 
-/* ----------- Responsive ----------- */
+/* Responsive tweaks */
 @media (max-width: 640px) {
+  .card {
+    padding: 18px 16px 18px;
+  }
+
+  .header {
+    align-items: flex-start;
+  }
+
   .buttonRow {
     flex-direction: column;
+    align-items: flex-start;
   }
 
-  .callBtn,
-  .bookBtn {
+  .bookBtn,
+  .callBtn {
     width: 100%;
+    justify-content: center;
   }
 
-  .photo {
-    width: 190px;
-    height: 190px;
+  .socials {
+    position: static;
+    margin-top: 14px;
   }
 }
