@@ -1,231 +1,249 @@
+.motionWrap {
+  perspective: 1000px;
+  position: relative;
+}
+
+/* ----------- Card Wrapper ----------- */
+.cardWrapper {
+  position: relative;
+  border-radius: 22px;
+  transition: 0.35s;
+  transform-style: preserve-3d;
+}
+
+.cardWrapper:hover {
+  transform: translateY(-8px) rotateX(5deg) rotateY(-5deg);
+}
+
+/* ----------- Gradient Border ----------- */
+.gradientBorder {
+  position: absolute;
+  inset: 0;
+  padding: 2px;
+  border-radius: 22px;
+  background: linear-gradient(135deg, #2563eb, #bfdbfe, #1d4ed8);
+  background-size: 400% 400%;
+  animation: borderAnimate 6s ease infinite;
+  z-index: 0;
+}
+
+@keyframes borderAnimate {
+  0%,
+  100% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+}
+
+/* ----------- Card ----------- */
 .card {
   position: relative;
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
-  padding: 18px 16px 16px;
-  border-radius: 18px;
-  background: radial-gradient(circle at 0% 0%, #fff7ed 0, #ffffff 45%, #fffaf5 100%);
-  box-shadow: 0 18px 35px rgba(15, 23, 42, 0.08);
-  border: 1px solid rgba(248, 113, 113, 0.14);
-  transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+  border-radius: 20px;
+  background: linear-gradient(140deg, #bfdbfe, #60a5fa, #2563eb);
+  background-size: 200% 200%;
+  animation: cardGradient 8s ease infinite;
+  padding: 28px;
+  text-align: center;
+  overflow: hidden;
+  box-shadow: 0 12px 26px rgba(15, 23, 42, 0.14);
+  z-index: 2;
 }
 
-.card:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 22px 40px rgba(15, 23, 42, 0.12);
-  border-color: rgba(248, 113, 113, 0.3);
+@keyframes cardGradient {
+  0%,
+  100% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
 }
 
-/* Top section */
-
-.topRow {
-  display: flex;
-  align-items: center;
-  gap: 12px;
+/* ----------- Shine Effect ----------- */
+.shine {
+  position: absolute;
+  top: -60%;
+  left: -60%;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(
+    120deg,
+    rgba(255, 255, 255, 0.05),
+    rgba(255, 255, 255, 0.22),
+    rgba(255, 255, 255, 0.05)
+  );
+  transform: rotate(45deg);
+  opacity: 0;
 }
 
-.avatarWrap {
-  width: 64px;
-  height: 64px;
-  border-radius: 999px;
-  padding: 3px;
-  background: linear-gradient(135deg, #fb7185, #f97316);
+.cardWrapper:hover .shine {
+  opacity: 1;
+  animation: shineMove 1.2s ease forwards;
+}
+
+@keyframes shineMove {
+  from {
+    transform: translateX(-100%) rotate(45deg);
+  }
+  to {
+    transform: translateX(100%) rotate(45deg);
+  }
+}
+
+/* ----------- Image ----------- */
+.imageWrap {
   display: flex;
-  align-items: center;
   justify-content: center;
-  flex-shrink: 0;
+  margin-bottom: 18px;
 }
 
-.avatar {
-  width: 100%;
-  height: 100%;
-  border-radius: 999px;
+.photo {
+  width: 230px;
+  height: 230px;
+  border-radius: 18px;
   object-fit: cover;
-  border: 2px solid #fff7f5;
+  transition: 0.35s ease;
 }
 
-.headerText {
-  display: flex;
-  flex-direction: column;
-  gap: 2px;
+.cardWrapper:hover .photo {
+  transform: scale(1.05);
 }
 
+/* ----------- Text ----------- */
 .name {
-  margin: 0;
-  font-size: 1.02rem;
+  font-size: 1.6rem;
   font-weight: 700;
-  letter-spacing: 0.01em;
-  color: #111827;
+  color: #0f172a;
 }
 
-.role {
-  margin: 0;
-  font-size: 0.82rem;
-  font-weight: 500;
-  color: #f97316;
+.title {
+  color: #0f172a;
+  opacity: 0.9;
+  font-weight: 600;
+  margin-bottom: 6px;
 }
-
-/* Bio */
 
 .bio {
-  margin: 4px 0 0 0;
-  font-size: 0.88rem;
+  color: #0f172a;
+  opacity: 0.85;
   line-height: 1.55;
-  color: #4b5563;
+  font-size: 0.95rem;
+  margin: 10px 0 18px 0;
 }
 
-/* Footer */
-
-.footer {
-  margin-top: 8px;
+/* ----------- Buttons Row ----------- */
+.buttonRow {
   display: flex;
-  flex-direction: column;
-  gap: 10px;
+  justify-content: center;
+  align-items: center;
+  gap: 18px;
+  margin-bottom: 16px;
 }
 
-.sessionButton {
-  align-self: flex-start;
-  border: none;
-  outline: none;
-  border-radius: 999px;
-  padding: 8px 16px;
-  background: linear-gradient(135deg, #f97316, #fb7185);
+/* ----------- Book Button ----------- */
+.bookBtn {
+  background: linear-gradient(135deg, #2563eb, #1d4ed8);
   color: #ffffff;
-  font-size: 0.86rem;
+  padding: 10px 22px;
+  border-radius: 12px;
+  font-weight: 600;
+  border: none;
+  cursor: pointer;
+  transition: 0.25s;
+  min-width: 130px;
+}
+
+.bookBtn:hover {
+  transform: translateY(-3px) scale(1.03);
+  box-shadow: 0 6px 18px rgba(37, 99, 235, 0.28);
+}
+
+/* ----------- CALL BUTTON ----------- */
+.callBtn {
+  background: #2563eb;
+  color: #ffffff;
+  padding: 10px 22px;
+  border-radius: 12px;
   font-weight: 600;
   cursor: pointer;
-  box-shadow: 0 8px 20px rgba(248, 113, 113, 0.45);
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: 6px;
-  transition: box-shadow 0.2s ease, transform 0.15s ease, filter 0.15s ease;
-}
-
-.sessionButton:hover {
-  filter: brightness(1.04);
-  transform: translateY(-1px);
-  box-shadow: 0 10px 24px rgba(248, 113, 113, 0.55);
-}
-
-.sessionButton:active {
-  transform: translateY(0);
-  box-shadow: 0 5px 15px rgba(248, 113, 113, 0.35);
-}
-
-/* Contact row */
-
-.contactRow {
+  transition: 0.28s ease;
+  min-width: 150px;
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  gap: 10px;
-}
-
-/* Call button */
-
-.callButton {
-  border: none;
-  outline: none;
-  background: #fef3c7;
-  color: #92400e;
-  border-radius: 999px;
-  padding: 6px 10px;
-  min-width: 120px;
-  max-width: 160px;
-  font-size: 0.78rem;
-  font-weight: 600;
-  cursor: pointer;
-  display: inline-flex;
-  align-items: center;
   justify-content: center;
+  gap: 10px;
+  position: relative;
   overflow: hidden;
-  white-space: nowrap;
-  transition: background 0.2s ease, box-shadow 0.2s ease, transform 0.15s ease;
-  box-shadow: 0 4px 10px rgba(250, 204, 21, 0.4);
 }
 
-.callButton:hover {
-  background: #fde68a;
-  transform: translateY(-1px);
-  box-shadow: 0 6px 14px rgba(250, 204, 21, 0.45);
+.callBtn:hover {
+  background: #1d4ed8;
+  transform: translateY(-2px) scale(1.03);
 }
 
-.callInner {
-  display: inline-flex;
-  align-items: center;
-  gap: 5px;
+.callBtn i {
+  font-size: 16px;
+  transition: opacity 0.2s ease;
 }
 
-.callIcon {
-  font-size: 0.78rem;
+.callBtn:hover i {
+  opacity: 0;
 }
 
-.phoneText {
-  display: inline-block;
-  font-size: 0.78rem;
-  font-weight: 600;
+.callText {
+  opacity: 1;
+  transition: opacity 0.2s ease;
 }
 
-/* Social icons */
-
-.socialWrap {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
+.phoneSlide {
+  position: absolute;
+  right: -100%;
+  opacity: 0;
+  transition: 0.3s ease;
 }
 
-.socialIcon {
-  width: 30px;
-  height: 30px;
-  border-radius: 999px;
-  background: #f9fafb;
-  display: inline-flex;
-  align-items: center;
+.callBtn:hover .callText {
+  opacity: 0;
+}
+
+.callBtn:hover .phoneSlide {
+  right: 12px;
+  opacity: 1;
+}
+
+/* ----------- Social Icons ----------- */
+.socials {
+  display: flex;
   justify-content: center;
-  color: #4b5563;
-  font-size: 0.9rem;
-  text-decoration: none;
-  box-shadow: 0 3px 8px rgba(15, 23, 42, 0.15);
-  transition: transform 0.15s ease, box-shadow 0.15s ease, background 0.15s ease, color 0.15s ease;
+  gap: 18px;
 }
 
-.socialIcon:hover {
-  transform: translateY(-1px) scale(1.03);
-  box-shadow: 0 4px 12px rgba(15, 23, 42, 0.18);
+.icon {
+  font-size: 26px;
+  transition: 0.25s ease;
 }
 
-/* Platform-specific hover colors */
-.socialIcon[href*="instagram"]:hover {
-  background: radial-gradient(circle at 30% 30%, #fdf497 0, #fd5949 45%, #d6249f 75%, #285aeb 100%);
-  color: #ffffff;
+.instagram:hover,
+.whatsapp:hover {
+  color: #2563eb;
+  transform: scale(1.2);
 }
 
-.socialIcon[href*="wa.me"]:hover,
-.socialIcon[href*="whatsapp"]:hover {
-  background: #22c55e;
-  color: #ffffff;
-}
-
-/* Responsive */
-
-@media (max-width: 480px) {
-  .card {
-    padding: 16px 14px 14px;
-  }
-
-  .avatarWrap {
-    width: 58px;
-    height: 58px;
-  }
-
-  .contactRow {
+/* ----------- Responsive ----------- */
+@media (max-width: 640px) {
+  .buttonRow {
     flex-direction: column;
-    align-items: flex-start;
   }
 
-  .socialWrap {
-    align-self: flex-start;
+  .callBtn,
+  .bookBtn {
+    width: 100%;
+  }
+
+  .photo {
+    width: 190px;
+    height: 190px;
   }
 }

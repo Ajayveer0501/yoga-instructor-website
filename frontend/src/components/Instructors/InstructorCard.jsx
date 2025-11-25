@@ -1,9 +1,8 @@
-import React, { useState } from 'react';
-import PropTypes from 'prop-types';
-import styles from './InstructorCard.module.css';
-import { FaInstagram, FaWhatsapp, FaPhoneAlt } from 'react-icons/fa';
+import React from "react";
+import { motion } from "framer-motion";
+import styles from "./InstructorCard.module.css";
 
-export default function InstructorCard({
+const InstructorCard = ({
   name,
   role,
   bio,
@@ -11,91 +10,63 @@ export default function InstructorCard({
   phone,
   instagramUrl,
   whatsappUrl,
-}) {
-  const [showNumber, setShowNumber] = useState(false);
+}) => {
+  const normalizedPhone = phone ? phone.replace(/\s+/g, "") : "";
 
   return (
-    <article className={styles.card}>
-      <div className={styles.topRow}>
-        <div className={styles.avatarWrap}>
-          <img src={imageSrc} alt={name} className={styles.avatar} />
-        </div>
-        <div className={styles.headerText}>
-          <h3 className={styles.name}>{name}</h3>
-          {role && <p className={styles.role}>{role}</p>}
-        </div>
-      </div>
+    <motion.div
+      className={styles.motionWrap}
+      initial={{ opacity: 0, y: 30 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.6 }}
+      viewport={{ once: true }}
+    >
+      <div className={styles.cardWrapper}>
+        <div className={styles.gradientBorder}></div>
 
-      <p className={styles.bio}>{bio}</p>
+        <div className={styles.card}>
+          <div className={styles.shine}></div>
 
-      <div className={styles.footer}>
-        <button className={styles.sessionButton} type="button">
-          Book a Session
-        </button>
+          {/* Image */}
+          <div className={styles.imageWrap}>
+            <img src={imageSrc} alt={name} className={styles.photo} />
+          </div>
 
-        <div className={styles.contactRow}>
-          {phone && (
-            <button
-              type="button"
-              className={styles.callButton}
-              onMouseEnter={() => setShowNumber(true)}
-              onMouseLeave={() => setShowNumber(false)}
-            >
-              {showNumber ? (
-                <span className={styles.phoneText}>{phone}</span>
-              ) : (
-                <span className={styles.callInner}>
-                  <FaPhoneAlt className={styles.callIcon} />
-                  <span>Call</span>
-                </span>
-              )}
-            </button>
-          )}
+          {/* Text */}
+          <h2 className={styles.name}>{name}</h2>
+          <p className={styles.title}>{role}</p>
+          <p className={styles.bio}>{bio}</p>
 
-          <div className={styles.socialWrap}>
-            {instagramUrl && (
-              <a
-                href={instagramUrl}
-                target="_blank"
-                rel="noreferrer"
-                className={styles.socialIcon}
-                aria-label={`${name} on Instagram`}
-              >
-                <FaInstagram />
-              </a>
-            )}
-            {whatsappUrl && (
-              <a
-                href={whatsappUrl}
-                target="_blank"
-                rel="noreferrer"
-                className={styles.socialIcon}
-                aria-label={`WhatsApp ${name}`}
-              >
-                <FaWhatsapp />
-              </a>
-            )}
+          {/* Buttons */}
+          <div className={styles.buttonRow}>
+            <button className={styles.bookBtn}>Book Session</button>
+
+            {/* Call button */}
+            <a href={`tel:${normalizedPhone}`} className={styles.callBtn}>
+              <i className="fa-solid fa-phone" />
+              <span className={styles.callText}>Call</span>
+              <span className={styles.phoneSlide}>{phone}</span>
+            </a>
+          </div>
+
+          {/* Social Icons */}
+          <div className={styles.socials}>
+            <a href={instagramUrl} target="_blank" rel="noreferrer">
+              <i
+                className={`fa-brands fa-instagram ${styles.icon} ${styles.instagram}`}
+              />
+            </a>
+
+            <a href={whatsappUrl} target="_blank" rel="noreferrer">
+              <i
+                className={`fa-brands fa-whatsapp ${styles.icon} ${styles.whatsapp}`}
+              />
+            </a>
           </div>
         </div>
       </div>
-    </article>
+    </motion.div>
   );
-}
-
-InstructorCard.propTypes = {
-  name: PropTypes.string.isRequired,
-  role: PropTypes.string,
-  bio: PropTypes.string,
-  imageSrc: PropTypes.string.isRequired,
-  phone: PropTypes.string,
-  instagramUrl: PropTypes.string,
-  whatsappUrl: PropTypes.string,
 };
 
-InstructorCard.defaultProps = {
-  role: '',
-  bio: '',
-  phone: '',
-  instagramUrl: '',
-  whatsappUrl: '',
-};
+export default InstructorCard;
