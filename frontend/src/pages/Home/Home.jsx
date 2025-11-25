@@ -198,7 +198,7 @@ export default function Home() {
             <Link to="/contact" className={styles.primaryBtn}>
               Talk to Us About Your Team
             </Link>
-            <a href="mailto:flowsisters@yoga.com" className={styles.linkUnderline}>
+            <a href="mailto:flowwithyogasisters@gmail.com" className={styles.linkUnderline}>
               Or email us directly
             </a>
           </div>
